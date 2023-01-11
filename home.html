@@ -1,0 +1,363 @@
+<!-- <?php
+
+$conn = mysqli_connect('localhost','root','','contact_db') or die('connection failed');
+
+if(isset($_POST['submit'])){
+
+   $name = mysqli_real_escape_string($conn, $_POST['name']);
+   $email = mysqli_real_escape_string($conn, $_POST['email']);
+   $number = $_POST['number'];
+   $date = $_POST['date'];
+
+   $insert = mysqli_query($conn, "INSERT INTO `contact_form`(name, email, number, date) VALUES('$name','$email','$number','$date')") or die('query failed');
+
+   if($insert){
+      $message[] = 'Appointment Made Successfully!';
+   }else{
+      $message[] = 'Appointment Failed';
+   }
+
+}
+
+?> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Wrek's Diner</title>
+
+   <!-- font awesome cdn link -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+
+   <!-- bootstrap cdn link -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css">
+
+   <!-- custom css file link -->
+   <link rel="stylesheet" href="css/home.css">
+
+</head>
+<body>
+   
+<!-- header section starts -->
+
+<nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
+
+   <div class="container-lg">
+
+     <a class="navbar-brand" href="#home">
+         <img src="./media/logo.svg" class="logo" alt="logo">
+     </a>
+
+     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
+       data-bs-target="#navmenu" aria-controls="navmenu" 
+       aria-expanded="false" aria-label="Toggle navigation">
+       <span class="fas fa-bars"></span>
+     </button>
+
+     <div class="collapse navbar-collapse" id="navmenu">
+       <div class="navbar-nav ms-auto mb-2 mb-lg-0">
+         <a class="nav-link" href="#home">Home</a>
+         <a class="nav-link" href="#menu">Menu</a>
+         <a class="nav-link" href="#reviews">Reviews</a>
+         <a class="nav-link" href="#contact">Contact</a>
+       </div>
+     </div>
+
+   </div>
+
+</nav>
+
+<!-- header section ends -->
+
+<!-- home section starts -->
+
+<div class="home-img"></div>
+
+<section class="home" id="home">
+   
+   <div class="container">
+
+      <div class="row min-vh-100 align-items-center">
+         <div class="content text-center text-md-start">
+            <h3>Welcome to Wrek's</h3>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laudantium itaque, quasi aliquam alias tempora voluptatibus.</p>
+            <a href="#contact" class="link-btn">Make a Reservation</a>
+         </div>
+      </div>
+
+   </div>
+
+</section>
+
+<!-- home section ends -->
+
+<!-- about section starts -->
+
+<section class="about" id="about">
+
+   <div class="container">
+
+      <div class="row align-items-center">
+
+         <div class="col-md-6 image">
+            <img src="media/about-img.jpg" class="w-100 mb-5 mb-md-0 rounded" alt="chef's hand preparing pasta">
+         </div>
+
+         <div class="col-md-6 content">
+            <span>About Us</span>
+            <h3>A Truly Local Eating Experience</h3>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laboriosam cupiditate vero in provident ducimus. Totam quas labore mollitia cum nisi, sint, expedita rem error ipsa, nesciunt ab provident. Aperiam, officiis!</p>
+         </div>
+
+      </div>
+
+   </div>
+
+</section>
+
+<!-- about section ends -->
+
+<!-- menu section starts -->
+
+<section class="menu" id="menu">
+
+   <h1 class="heading">Our <span>Menu</span></h1>
+   <div class="underline"></div>
+
+   <!-- filter buttons -->
+   <div class="btn-container"></div>
+   
+   <div class="box-container container section-center">
+
+      <div class="box">
+         <img src="media/item-0.jpeg" alt="godzilla milkshake">
+
+         <div class="item-info">
+            <div class="wrapper">
+               <h4>Godzilla Milkshake</h4>
+               <h4 class="price">$5.99</h4>
+            </div>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat, non?</p>
+         </div>
+
+      </div>
+
+   </div>
+
+</section>
+
+<!-- menu section ends -->
+
+<!-- reviews section starts -->
+
+<section class="reviews" id="reviews">
+
+   <h1 class="heading">Satisfied <span>Customers</span></h1>
+   <div class="underline"></div>
+
+   <div class="box-container container">
+
+      <div class="box testimony">
+         <div class="img-container">
+            <img src="media/person-0.jpg" id="person-img" alt="female customer">
+         </div>
+
+         <p id="info">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto
+          asperiores debitis incidunt, eius earum ipsam cupiditate libero?
+          Iste, doloremque nihil?
+         </p> 
+
+         <div class="stars" id="stars" aria-hidden="true">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+         </div>
+
+         <h3 id="author">sara jones</h3>
+
+      </div>
+
+   </div>
+
+</section>
+
+<!-- reviews section ends -->
+
+<!-- faqs section starts -->
+
+<section class="faqs">
+
+   <h1 class="heading">Frequent <span>Questions</span></h1>
+   <div class="underline"></div>
+
+   <div class="box-container container">
+
+      <div class="box question">
+         <div class="question-title">
+
+            <h3>do you accept all major credit cards?</h3>
+            <button type="button" class="question-btn">
+
+               <span class="plus-icon">
+                  <i class="far fa-plus-square"></i>
+               </span>
+
+               <span class="minus-icon">
+                  <i class="far fa-minus-square"></i>
+               </span>
+
+            </button>
+         </div>
+
+         <div class="question-text">
+            <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est
+            dolore illo dolores quia nemo doloribus quaerat, magni numquam
+            repellat reprehenderit.
+            </p>
+         </div>
+      </div>
+
+      <div class="box question">
+         <div class="question-title">
+
+            <h3>do you support local farmers?</h3>
+            <button type="button" class="question-btn">
+
+               <span class="plus-icon">
+                  <i class="far fa-plus-square"></i>
+               </span>
+
+               <span class="minus-icon">
+                  <i class="far fa-minus-square"></i>
+               </span>
+
+            </button>
+         </div>
+
+         <div class="question-text">
+            <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est
+            dolore illo dolores quia nemo doloribus quaerat, magni numquam
+            repellat reprehenderit.
+            </p>
+         </div>
+      </div>
+
+      <div class="box question">
+         <div class="question-title">
+
+            <h3>do you use organic ingredients?</h3>
+            <button type="button" class="question-btn">
+
+               <span class="plus-icon">
+                  <i class="far fa-plus-square"></i>
+               </span>
+
+               <span class="minus-icon">
+                  <i class="far fa-minus-square"></i>
+               </span>
+
+            </button>
+         </div>
+
+         <div class="question-text">
+            <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est
+            dolore illo dolores quia nemo doloribus quaerat, magni numquam
+            repellat reprehenderit.
+            </p>
+         </div>
+      </div>
+      
+   </div>
+
+</section>
+
+<!-- faqs section ends -->
+
+<!-- contact section starts -->
+
+<section class="contact" id="contact">
+
+   <h1 class="heading">Make <span>Reservation</span></h1>
+   <div class="underline"></div>
+
+   <form action="#" method="post">
+      <!-- insert <?php echo $_SERVER['PHP_SELF']; ?> into "form action" field -->
+      
+      <!-- <?php 
+         if(isset($message)){
+            foreach($message as $message){
+               echo '<p class="message">'.$message.'</p>';
+            }
+         }
+      ?> -->
+
+      <span>Name:</span>
+      <input type="text" name="name" placeholder="Enter Your Name" class="box" required>
+      <span>Email:</span>
+      <input type="email" name="email" placeholder="Enter Your Email" class="box" required>
+      <span>Phone Number:</span>
+      <input type="number" name="number" placeholder="Enter Your Number" class="box" required>
+      <span>Reservation Date:</span>
+      <input type="datetime-local" name="date" class="box" required>
+      <input type="submit" value="Confirm Reservation" name="submit" class="link-btn">
+   </form>  
+
+</section>
+
+<!-- contact section ends -->
+
+<!-- footer section starts -->
+
+<section class="footer">
+
+   <div class="box-container container">
+
+      <div class="box">
+         <i class="fas fa-phone"></i>
+         <h3>Phone Number</h3>
+         <p>+123-456-7890</p>
+         <p>+111-222-3333</p>
+      </div>
+
+      <div class="box">
+         <i class="fas fa-clock"></i>
+         <h3>Operating Hours</h3>
+         <p>Ann Arbor, Michigan - 48201</p>
+         <p>07:00AM to 10:00PM</p>
+      </div>
+
+      <div class="box">
+         <i class="fas fa-envelope"></i>
+         <h3>Email Address</h3>
+         <p>wreksdiner@email.com</p>
+         <p>steinerbros@email.com</p>
+      </div>
+
+   </div>
+
+</section>
+
+<!-- footer section ends -->
+
+<!-- scroll to top link -->
+<a class="scroll-link top-link" href="#home">
+   <i class="fas fa-arrow-up"></i>
+</a>
+
+<!-- bootstrap js link -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.bundle.min.js"></script>
+
+<!-- custom js file link -->
+<script src="js/home.js"></script>
+
+</body>
+</html>

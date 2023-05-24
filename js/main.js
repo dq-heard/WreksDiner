@@ -1,3 +1,4 @@
+//Create switch for video background
 const btn = document.querySelector(".switch-btn");
 const video = document.querySelector(".video-container");
 
@@ -11,6 +12,7 @@ btn.addEventListener("click", function () {
   }
 });
 
+//Setup for slow-loading browsers
 const preloader = document.querySelector(".preloader");
 
 window.addEventListener("load", function () {

@@ -44,7 +44,6 @@ if(isset($_POST['submit'])){
 <!-- header section starts -->
 
 <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
-
    <div class="container-lg">
 
      <a class="navbar-brand" href="#home">
@@ -59,15 +58,11 @@ if(isset($_POST['submit'])){
 
      <div class="collapse navbar-collapse" id="navmenu">
        <div class="navbar-nav ms-auto mb-2 mb-lg-0">
-         <a class="nav-link" href="#home">Home</a>
-         <a class="nav-link" href="#menu">Menu</a>
-         <a class="nav-link" href="#reviews">Reviews</a>
-         <a class="nav-link" href="#contact">Contact</a>
+         <ul id="nav-container"></ul>
        </div>
      </div>
 
    </div>
-
 </nav>
 
 <!-- header section ends -->
@@ -76,8 +71,7 @@ if(isset($_POST['submit'])){
 
 <div class="home-img"></div>
 
-<section class="home" id="home">
-   
+<section class="section" id="home">
    <div class="container">
 
       <div class="row min-vh-100 align-items-center">
@@ -89,17 +83,14 @@ if(isset($_POST['submit'])){
       </div>
 
    </div>
-
 </section>
 
 <!-- home section ends -->
 
 <!-- about section starts -->
 
-<section class="about" id="about">
-
+<section class="section" id="about">
    <div class="container">
-
       <div class="row align-items-center">
 
          <div class="col-md-6 image">
@@ -113,16 +104,14 @@ if(isset($_POST['submit'])){
          </div>
 
       </div>
-
    </div>
-
 </section>
 
 <!-- about section ends -->
 
 <!-- menu section starts -->
 
-<section class="menu" id="menu">
+<section class="section" id="menu">
 
    <h1 class="heading">Our <span>Menu</span></h1>
    <div class="underline"></div>
@@ -153,7 +142,7 @@ if(isset($_POST['submit'])){
 
 <!-- reviews section starts -->
 
-<section class="reviews" id="reviews">
+<section class="section" id="reviews">
 
    <h1 class="heading">Satisfied <span>Customers</span></h1>
    <div class="underline"></div>
@@ -191,92 +180,12 @@ if(isset($_POST['submit'])){
 
 <!-- faqs section starts -->
 
-<section class="faqs">
+<section class="section" id="faqs">
 
    <h1 class="heading">Frequent <span>Questions</span></h1>
    <div class="underline"></div>
 
-   <div class="box-container container">
-
-      <div class="box question">
-         <div class="question-title">
-
-            <h3>do you accept all major credit cards?</h3>
-            <button type="button" class="question-btn">
-
-               <span class="plus-icon">
-                  <i class="far fa-plus-square"></i>
-               </span>
-
-               <span class="minus-icon">
-                  <i class="far fa-minus-square"></i>
-               </span>
-
-            </button>
-         </div>
-
-         <div class="question-text">
-            <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est
-            dolore illo dolores quia nemo doloribus quaerat, magni numquam
-            repellat reprehenderit.
-            </p>
-         </div>
-      </div>
-
-      <div class="box question">
-         <div class="question-title">
-
-            <h3>do you support local farmers?</h3>
-            <button type="button" class="question-btn">
-
-               <span class="plus-icon">
-                  <i class="far fa-plus-square"></i>
-               </span>
-
-               <span class="minus-icon">
-                  <i class="far fa-minus-square"></i>
-               </span>
-
-            </button>
-         </div>
-
-         <div class="question-text">
-            <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est
-            dolore illo dolores quia nemo doloribus quaerat, magni numquam
-            repellat reprehenderit.
-            </p>
-         </div>
-      </div>
-
-      <div class="box question">
-         <div class="question-title">
-
-            <h3>do you use organic ingredients?</h3>
-            <button type="button" class="question-btn">
-
-               <span class="plus-icon">
-                  <i class="far fa-plus-square"></i>
-               </span>
-
-               <span class="minus-icon">
-                  <i class="far fa-minus-square"></i>
-               </span>
-
-            </button>
-         </div>
-
-         <div class="question-text">
-            <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est
-            dolore illo dolores quia nemo doloribus quaerat, magni numquam
-            repellat reprehenderit.
-            </p>
-         </div>
-      </div>
-      
-   </div>
+   <ul class="box-container container" id="faq-container"></ul>
 
 </section>
 
@@ -317,7 +226,7 @@ if(isset($_POST['submit'])){
 
 <!-- footer section starts -->
 
-<section class="footer">
+<section class="footer" id="footer">
 
    <div class="box-container container">
 

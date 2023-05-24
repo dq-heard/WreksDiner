@@ -1,19 +1,77 @@
-// setup back to top link
+// Get the container element & create an array of section names
+const navContainer = document.getElementById("nav-container");
+const sectionTitles = ["Home", "About", "Menu", "Reviews", "FAQs", "Contact"];
+
+// Loop over sections array & create a nav-link for each one
+sectionTitles.forEach(section => {
+  const li = document.createElement("li");
+  li.innerHTML = `<a class="nav-link" href="#${section.toLowerCase()}">${section}</a>`
+  navContainer.appendChild(li);
+});
+
+// Get all nav-links & set "Home" as default active link
+const links = document.getElementsByClassName("nav-link");
+const active = document.getElementsByClassName("active");
+links[0].className += " active";
+
+// Loop through the links and add active class on click
+for (let i = 0; i < links.length; i++) {
+  links[i].addEventListener("click", function(e) {
+    e.preventDefault();  
+    active[0].className = active[0].className.replace(" active", "");
+    this.className += " active";
+
+    const href = this.getAttribute("href");
+    document.querySelector(href).scrollIntoView({
+      behavior: "smooth"
+    });
+  });
+}
+
+//Get sections & match current one with active nav-links
+const sections = document.querySelectorAll("section");
+
+window.addEventListener("scroll", () => {
+  let current = "";
+  sections.forEach((section) => {
+    let rect = section.getBoundingClientRect();
+    if (rect.top <= 120 && rect.bottom >= (window.innerHeight)/3) {
+      current = section.getAttribute("id");
+    }
+  });
+
+  for (let i = 0; i < links.length; i++) {
+    links[i].classList.remove("active");
+    if (links[i].getAttribute("href").substring(1) === current) {
+      links[i].classList.add("active");
+    }
+  }
+});
+
+// Setup back-to-top link
+const topLink = document.querySelector(".top-link");
+
 window.onscroll = () => {
-  const topLink = document.querySelector(".top-link");
   const scrollHeight = window.pageYOffset;
 
-  if (scrollHeight > 320) {
+  if (scrollHeight > 580) {
     topLink.classList.add("show-link");
   } else {
     topLink.classList.remove("show-link");
   }
 }
 
+// Active link reset for clicked top-link
+topLink.addEventListener("click", function() {
+  active[0].className = active[0].className.replace(" active", "");
+  links[0].className += " active";
+});
+
+// Create an array of menu items
 const menu = [
   {
     id: 1,
-    title: "Buttermilk Pancakes",
+    title: "Bossman Slamcakes",
     category: "breakfast",
     price: 4.99,
     img: "./media/item-1.jpeg",
@@ -21,7 +79,7 @@ const menu = [
   },
   {
     id: 2,
-    title: "Diner Double",
+    title: "Hartbreaker",
     category: "lunch",
     price: 13.99,
     img: "./media/item-2.jpeg",
@@ -29,7 +87,7 @@ const menu = [
   },
   {
     id: 3,
-    title: "Berry Delicious",
+    title: "Berry Stratusfied",
     category: "shakes",
     price: 6.99,
     img: "./media/item-3.jpg",
@@ -37,7 +95,7 @@ const menu = [
   },
   {
     id: 4,
-    title: "Country Delight",
+    title: "Toast to Coast",
     category: "breakfast",
     price: 7.99,
     img: "./media/item-4.jpeg",
@@ -45,7 +103,7 @@ const menu = [
   },
   {
     id: 5,
-    title: "Egg Attack",
+    title: "Eggsecution",
     category: "lunch",
     price: 11.99,
     img: "./media/item-5.jpeg",
@@ -53,7 +111,7 @@ const menu = [
   },
   {
     id: 6,
-    title: "Oreo Dream",
+    title: "Sensual Chocolate",
     category: "shakes",
     price: 8.99,
     img: "./media/item-6.jpeg",
@@ -61,7 +119,7 @@ const menu = [
   },
   {
     id: 7,
-    title: "Bacon Overflow",
+    title: "Last Sunrise",
     category: "breakfast",
     price: 5.99,
     img: "./media/item-7.jpeg",
@@ -69,7 +127,7 @@ const menu = [
   },
   {
     id: 8,
-    title: "American Classic",
+    title: "American Dream",
     category: "lunch",
     price: 12.99,
     img: "./media/item-8.jpeg",
@@ -77,7 +135,7 @@ const menu = [
   },
   {
     id: 9,
-    title: "Quarantine Buddy",
+    title: "Showstopper",
     category: "shakes",
     price: 9.99,
     img: "./media/item-9.jpeg",
@@ -85,7 +143,7 @@ const menu = [
   },
   {
     id: 10,
-    title: "Bison Steak",
+    title: "Brutus Beefsteak",
     category: "dinner",
     price: 20.99,
     img: "./media/item-10.jpeg",
@@ -93,7 +151,7 @@ const menu = [
   },
   {
     id: 11,
-    title: "Pasta Paradise",
+    title: "Milan Miracle",
     category: "dinner",
     price: 16.99,
     img: "./media/item-11.jpg",
@@ -101,7 +159,7 @@ const menu = [
   },
   {
     id: 12,
-    title: "Chicken Cuisine",
+    title: "Chicken Crossface",
     category: "dinner",
     price: 15.99,
     img: "./media/item-12.jpg",
@@ -109,16 +167,17 @@ const menu = [
   },
 ];
  
-// get parent element
+// Get parent elements for this section
 const sectionCenter = document.querySelector(".section-center");
 const btnContainer = document.querySelector(".btn-container");
  
-// display all items when page loads
+// Display all items when page loads
 window.addEventListener("DOMContentLoaded", function () {
   displayMenuItems(menu);
   displayMenuButtons();
 });
  
+// Create entries for each menu item
 function displayMenuItems(menuItems) {
   let displayMenu = menuItems.map(function (item) {
 
@@ -133,10 +192,12 @@ function displayMenuItems(menuItems) {
                 </div>
               </div>`;
   });
+
   displayMenu = displayMenu.join("");
   sectionCenter.innerHTML = displayMenu;
 }
- 
+
+// Create categories and filter buttons based on food type
 function displayMenuButtons() {
   const categories = menu.reduce (
     function (values, item) {
@@ -147,6 +208,7 @@ function displayMenuButtons() {
     },
     ["all"]
   );
+  
   const categoryBtns = categories
     .map(function (category) {
       return `<button type="button" class="filter-btn" data-id=${category}>
@@ -166,6 +228,7 @@ function displayMenuButtons() {
           return menuItem;
         }
       });
+
       if (category === "all") {
         displayMenuItems(menu);
       } else {
@@ -175,16 +238,17 @@ function displayMenuButtons() {
   });
 }
 
-// local reviews data
+// Create an array for reviews
 const reviews = [
   {
     id: 1,
     img:
       "./media/person-1.jpg",
     text:
-      `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-       Eu feugiat pretium nibh ipsum consequat nisl vel pretium. 
-       Sed vulputate mi sit amet mauris.`,
+      `Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
+      Culpa, ullam tenetur? Non modi quos cum, possimus neque fuga, 
+      voluptate voluptas facere soluta molestiae, nihil itaque dolores. 
+      Perspiciatis blanditiis vel ullam similique.`,
     stars:`<i class="fa-solid fa-star"></i>
            <i class="fa-solid fa-star"></i>
            <i class="fa-solid fa-star"></i>
@@ -229,7 +293,7 @@ const reviews = [
     text:
       `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
        Non enim praesent elementum facilisis leo vel fringilla. 
-       Et pharetra pharetra massa massa ultricies.`,
+       Et pharetra eligendi ipsam eum exercitationem ultricies.`,
     stars:`<i class="fa-solid fa-star"></i>
            <i class="fa-solid fa-star"></i>
            <i class="fa-solid fa-star"></i>
@@ -239,16 +303,16 @@ const reviews = [
   },
 ];
 
-// select items
+// Select items within the reviews
 const img = document.getElementById("person-img");
 const author = document.getElementById("author");
 const info = document.getElementById("info");
 const stars = document.getElementById("stars");
 
-// set starting item
+// Set starting item
 let currentItem = 0;
 
-// load initial item
+// Load initial item
 window.addEventListener("DOMContentLoaded", function () {
   const item = reviews[currentItem];
   img.src = item.img;
@@ -257,7 +321,7 @@ window.addEventListener("DOMContentLoaded", function () {
   stars.innerHTML = item.stars;
 });
 
-// show person based on item
+// Show person based on item
 function showPerson(person) {
   const item = reviews[person];
   img.src = item.img;
@@ -266,7 +330,7 @@ function showPerson(person) {
   stars.innerHTML = item.stars;
 }
 
-// carousel effect
+// Carousel effect
 setInterval(e => {
   currentItem++;
   if (currentItem > reviews.length - 1) {
@@ -275,23 +339,61 @@ setInterval(e => {
   showPerson(currentItem);
 }, 5000);
 
-//using selectors inside the element
-const questions = document.querySelectorAll(".question");
+// Create an array for questions & get parent container
+const questions = ["Do You Accept All Major Credit Cards?",
+"Do You Support Local Farmers?","Do You Use Organic Ingredients?",
+"Do You Have Other Locations?"];
 
-// display all items when page loads
+const faqContainer = document.getElementById("faq-container");
+
+// Display all items when page loads
 window.addEventListener("DOMContentLoaded", function () {
   displayQuestions(questions);
+  toggleAnswers();
 });
  
-questions.forEach(function (question) {
-  const btn = question.querySelector(".question-btn");
+// Create FAQ entries on the page
+function displayQuestions(questions){
+  questions.forEach(question => {
+    const questionTitle = document.createElement("li");
+    questionTitle.innerHTML = `<div class="box question">
+                                <div class="question-title">
 
-    btn.addEventListener("click", function () {
-      questions.forEach(function (item) {
-        if (item !== question) {
-          item.classList.remove("show-text");
-        }
-      });
-      question.classList.toggle("show-text");
+                                  <h3>${question}</h3>
+                                  <button type="button" class="question-btn">
+
+                                    <span class="plus-icon">
+                                      <i class="far fa-plus-square"></i>
+                                    </span>
+
+                                    <span class="minus-icon">
+                                      <i class="far fa-minus-square"></i>
+                                    </span>
+
+                                  </button>
+                                </div>
+
+                                <div class="question-text">
+                                  <p>
+                                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est
+                                  dolore illo dolores quia nemo doloribus quaerat, magni numquam
+                                  repellat reprehenderit.
+                                  </p>
+                                </div>
+                              </div>`
+    faqContainer.appendChild(questionTitle);
+  });
+};
+
+// Create toggle to show and hide the answers
+function toggleAnswers() {
+  const buttons = document.querySelectorAll(".question-btn");
+
+  buttons.forEach(button => {
+    button.addEventListener("click", () => {
+      const answer = button.parentNode.nextElementSibling;
+      answer.classList.toggle("show-text");
+      button.classList.toggle("show-text");
     });
-});
+  });
+};

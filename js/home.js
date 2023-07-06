@@ -54,7 +54,7 @@ const topLink = document.querySelector(".top-link");
 window.onscroll = () => {
   const scrollHeight = window.pageYOffset;
 
-  if (scrollHeight > 580) {
+  if (scrollHeight > 565) {
     topLink.classList.add("show-link");
   } else {
     topLink.classList.remove("show-link");
@@ -198,15 +198,15 @@ function displayMenuItems(menuItems) {
 }
 
 // Create categories and filter buttons based on food type
-function displayMenuButtons() {
+function displayMenuButtons(menuFiltered, currentCategory) {
   const categories = menu.reduce (
     function (values, item) {
-      if (!values.includes(item.category)) {
+      if (!values.includes(item.category) && item.category !== currentCategory) {
         values.push(item.category);
       }
       return values;
     },
-    ["all"]
+    menuFiltered ? ["all"] : []
   );
   
   const categoryBtns = categories
@@ -228,14 +228,17 @@ function displayMenuButtons() {
           return menuItem;
         }
       });
-
+  
       if (category === "all") {
         displayMenuItems(menu);
+        displayMenuButtons(false);
       } else {
         displayMenuItems(menuCategory);
+        // update the filter buttons
+        displayMenuButtons(true, category);
       }
     });
-  });
+  });  
 }
 
 // Create an array for reviews

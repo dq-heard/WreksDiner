@@ -5,9 +5,9 @@
   --white: #fff;
   --light-color: #666;
   --light-bg: #eee;
-  --border: .2em solid rgba(0, 0, 0, .1);
-  --radius: .5em;
-  --box-shadow: 0 .5em 1em rgba(0, 0, 0, .1);
+  --border: .2rem solid rgba(0, 0, 0, .1);
+  --radius: .5rem;
+  --box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
   --transition: all 0.3s linear;
   --fixed-width: 620px;
 }
@@ -22,8 +22,8 @@
   text-decoration: none;
 }
 *::-webkit-scrollbar {
-  height: 0.5em;
-  width: 1em;
+  height: 0.5rem;
+  width: 1rem;
 }
 *::-webkit-scrollbar-track {
   background-color: transparent;
@@ -35,11 +35,11 @@
 html {
   font-size: 62.5%;
   overflow-x: hidden;
-  scroll-padding-top: 6.5em;
+  scroll-padding-top: 6.5rem;
 }
 
 section {
-  padding: 4em 5%;
+  padding: 4rem 5%;
 }
 
 .heading {
@@ -54,18 +54,18 @@ section {
 }
 
 .underline {
-  width: 5em;
-  height: 0.25em;
+  width: 5rem;
+  height: 0.25rem;
   background: var(--gold);
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 2em;
+  margin-bottom: 2rem;
 }
 
 .link-btn {
   display: inline-block;
-  padding: 0.6em 1.5em;
-  border-radius: 0.3em;
+  padding: 0.6rem 1.5rem;
+  border-radius: 0.3rem;
   background-color: var(--gold);
   cursor: pointer;
   font-size: 1.7rem;
@@ -79,7 +79,7 @@ section {
 }
 
 .navbar {
-  padding: 0.5em;
+  padding: 0.5rem;
   border-bottom: var(--border);
   background-color: var(--white);
   box-shadow: var(--box-shadow);
@@ -89,7 +89,7 @@ section {
   height: 50px;
 }
 .navbar .navbar-toggler {
-  font-size: 3em;
+  font-size: 3rem;
   border: 0;
 }
 .navbar ul {
@@ -128,8 +128,8 @@ section {
   padding-bottom: 0;
 }
 #home .content {
-  width: 55em;
-  padding: 2em;
+  width: 55rem;
+  padding: 2rem;
 }
 #home .content h3 {
   font-size: 6rem;
@@ -139,11 +139,11 @@ section {
   line-height: 2;
   font-size: 1.5rem;
   color: var(--white);
-  padding: 1em 0;
+  padding: 1rem 0;
 }
 
 #about {
-  padding: 0 5% 1em;
+  padding: 0 5% 1rem;
 }
 #about .row {
   min-height: 50vh;
@@ -155,21 +155,21 @@ section {
 #about .row .content h3 {
   font-size: 2.1rem;
   color: var(--black);
-  margin-top: 0.5em;
+  margin-top: 0.5rem;
 }
 #about .row .content p {
-  padding: 0.5em 0;
+  padding: 0.5rem 0;
   font-size: 1.5rem;
   color: var(--light-color);
   line-height: 2;
 }
 
 #menu {
-  padding: 3em 5%;
+  padding: 3rem 5%;
   background-color: var(--light-bg);
 }
 #menu .btn-container {
-  margin-bottom: 3em;
+  margin-bottom: 3rem;
   display: flex;
   justify-content: center;
 }
@@ -177,10 +177,10 @@ section {
   background: var(--gold);
   font-size: 1.5rem;
   text-transform: capitalize;
-  margin: 0 0.5em;
+  margin: 0 0.5rem;
   letter-spacing: 1px;
-  border-radius: 0.3em;
-  padding: 0.375em 0.75em;
+  border-radius: 0.3rem;
+  padding: 0.375rem 0.75rem;
   color: var(--white);
   cursor: pointer;
   transition: var(--transition);
@@ -191,20 +191,22 @@ section {
 }
 #menu .box-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(30em, 1fr));
-  gap: 2em;
+  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+  gap: 2rem;
 }
 #menu .box-container .box {
   text-align: center;
-  padding: 2em;
+  padding: 2rem;
   background-color: var(--white);
   box-shadow: var(--box-shadow);
   border-radius: var(--radius);
+  max-width: 328px;
+  margin: 0 auto;
 }
 #menu .box-container .box img {
   -o-object-fit: cover;
      object-fit: cover;
-  margin: 1em 0;
+  margin: 1rem 0;
   width: 250px;
 }
 #menu .box-container .box .item-info .wrapper {
@@ -214,13 +216,13 @@ section {
 }
 #menu .box-container .box .item-info .wrapper h4 {
   font-size: 1.7rem;
-  margin-bottom: 0.5em;
+  margin-bottom: 0.5rem;
 }
 #menu .box-container .box .item-info .wrapper .price {
   color: var(--gold);
 }
 #menu .box-container .box .item-info p {
-  padding-top: 0.5em;
+  padding-top: 0.5rem;
   font-size: 1.4rem;
   color: var(--light-color);
   line-height: 1.5;
@@ -229,14 +231,14 @@ section {
 #reviews .box-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(30em, 1fr));
-  gap: 2em;
+  gap: 2rem;
 }
 #reviews .box-container .box {
   background-color: var(--white);
   text-align: center;
   border-radius: var(--radius);
   box-shadow: var(--box-shadow);
-  padding: 2em;
+  padding: 2rem;
   display: grid;
   place-items: center;
   width: 80vw;
@@ -267,8 +269,8 @@ section {
   position: absolute;
   top: 0;
   left: 0;
-  width: 3em;
-  height: 3em;
+  width: 3rem;
+  height: 3rem;
   display: grid;
   place-items: center;
   border-radius: 50%;
@@ -282,28 +284,28 @@ section {
   height: 100%;
   background: var(--gold);
   position: absolute;
-  top: -0.25em;
-  right: -0.5em;
+  top: -0.25rem;
+  right: -0.5rem;
   border-radius: 50%;
 }
 #reviews .box-container .box #info {
-  margin-bottom: 0.75em;
+  margin-bottom: 0.75rem;
 }
 #reviews .box-container .box #author {
-  margin-bottom: 1em;
+  margin-bottom: 1rem;
 }
 #reviews .box-container .box p {
-  padding: 2em 0;
+  padding: 2rem 0;
   line-height: 2;
   font-size: 1.5rem;
   color: var(--light-color);
   margin-bottom: 0;
 }
 #reviews .box-container .box .stars {
-  padding: 0.5em 1.5em;
+  padding: 0.5rem 1.5rem;
   border-radius: var(--radius);
   background-color: var(--light-bg);
-  margin-bottom: 2em;
+  margin-bottom: 2rem;
   display: inline-block;
 }
 #reviews .box-container .box .stars i {
@@ -321,27 +323,27 @@ section {
 
 #faqs {
   background-color: var(--light-bg);
-  padding: 6em 5%;
+  padding: 6rem 5%;
 }
 #faqs #faq-container {
   list-style-type: none;
 }
 #faqs .title {
-  margin-bottom: 3em;
+  margin-bottom: 3rem;
 }
 #faqs .question {
   max-width: var(--fixed-width);
   background: var(--white);
-  padding: 1.5em 1.5em 0 1.5em;
+  padding: 1.5rem 1.5rem 0 1.5rem;
   margin: 0 auto;
-  margin-bottom: 2em;
+  margin-bottom: 2rem;
 }
 #faqs .question-title {
   display: flex;
   justify-content: space-between;
   align-items: center;
   text-transform: capitalize;
-  padding-bottom: 1em;
+  padding-bottom: 1rem;
 }
 #faqs .question-title h3 {
   font-size: 2rem;
@@ -372,7 +374,7 @@ section {
 #faqs .question-text {
   display: none;
   font-size: 1.5rem;
-  padding: 1em 0 1.5em;
+  padding: 1rem 0 1.5rem;
   border-top: 1px solid rgba(0, 0, 0, 0.2);
 }
 #faqs .question-text p {
@@ -385,26 +387,26 @@ section {
 #contact form {
   border-radius: var(--radius);
   background-color: var(--light-bg);
-  padding: 1.5em;
+  padding: 1.5rem;
   margin: 0 auto;
-  max-width: 50em;
+  max-width: 50rem;
 }
 #contact form .message {
-  margin-bottom: 2em;
+  margin-bottom: 2rem;
   border-radius: var(--radius);
   background-color: var(--gold);
-  padding: 1.2em 1em;
+  padding: 1.2rem 1rem;
   font-size: 1.7rem;
   color: var(--white);
   text-align: center;
 }
 #contact form .box {
   width: 100%;
-  margin-top: 1em;
-  margin-bottom: 1.5em;
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
   border-radius: var(--radius);
   background-color: var(--white);
-  padding: 1em;
+  padding: 1rem;
   font-size: 1.7rem;
   color: var(--black);
   text-transform: none;
@@ -420,24 +422,24 @@ section {
 }
 #footer .box-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(25em, 1fr));
-  gap: 3em;
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  gap: 3rem;
 }
 #footer .box-container .box {
   text-align: center;
 }
 #footer .box-container .box i {
-  height: 3em;
-  width: 3em;
+  height: 4rem;
+  width: 4rem;
   border-radius: 50%;
-  line-height: 3em;
+  line-height: 2;
   font-size: 2rem;
   background-color: var(--gold);
   color: var(--white);
 }
 #footer .box-container .box h3 {
   font-size: 2rem;
-  margin: 1em 0;
+  margin: 1rem 0;
   color: var(--black);
 }
 #footer .box-container .box p {
@@ -449,14 +451,15 @@ section {
 .top-link {
   font-size: 2.75rem;
   position: fixed;
-  bottom: 1em;
-  right: 1em;
+  bottom: 1rem;
+  right: 1rem;
   background: var(--gold);
-  width: 1.5em;
-  height: 1.5em;
+  opacity: 0.8;
+  width: 3.5rem;
+  height: 3.5rem;
   display: grid;
   place-items: center;
-  border-radius: 0.3em;
+  border-radius: 0.3rem;
   color: var(--white);
   visibility: hidden;
   z-index: -100;
@@ -472,17 +475,22 @@ section {
   z-index: 100;
 }
 
-@media (min-width: 425px) {
-  #home .content h3 {
-    font-size: 4rem;
+@media screen and (max-width: 365px) {
+  html {
+    font-size: 58%;
   }
-  .heading {
-    font-size: 3rem;
+  #menu .box-container,
+  #reviews .box-container {
+    grid-template-columns: 1fr;
+    padding: 0;
+  }
+  #menu .box-container .box img {
+    width: 230px;
   }
 }
-@media (min-width: 768px) {
+@media screen and (min-width: 768px) {
   section {
-    padding: 3em 1em;
+    padding: 3rem 1rem;
   }
   .navbar ul {
     display: flex;
@@ -498,20 +506,26 @@ section {
     text-align: left;
   }
   #about {
-    margin-top: -2em;
+    margin-top: -2rem;
   }
 }
-@media (min-width: 1024px) {
+@media screen and (min-width: 991px) {
   html {
     font-size: 70%;
+  }
+  #about {
+    padding: 4rem 0 5rem;
+  }
+  #menu .box-container {
+    grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr));
   }
   #footer {
     display: flex;
   }
 }
-@media (min-width: 1200px) {
+@media screen and (min-width: 1200px) {
   #about .row .image {
-    margin: 3em 0;
+    margin: 3rem 0;
   }
 }
 @keyframes bounce {
